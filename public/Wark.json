@@ -1,0 +1,27 @@
+[
+    {
+        "Image" : "../src/assets/bookingIcon.png",
+        "tittle" : "Booking Pick and drop",
+        "description" : "From personal packages to business shipments — we deliver on time, every time."
+
+    },
+    {
+        "Image" : "../src/assets/bookingIcon.png",
+        "tittle" : "Cash On Delivery",
+        "description" : "From personal packages to business shipments — we deliver on time, every time."
+
+    },
+    {
+        "Image" : "../src/assets/bookingIcon.png",
+        "tittle" : "Delivery Hub",
+        "description" : "From personal packages to business shipments — we deliver on time, every time."
+
+    },
+    {
+        "Image" : "../src/assets/bookingIcon.png",
+        "tittle" : "Booking SME & Corporate",
+        "description" : "From personal packages to business shipments — we deliver on time, every time."
+
+    }
+
+]
