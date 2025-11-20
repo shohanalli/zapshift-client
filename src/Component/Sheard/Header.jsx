@@ -1,15 +1,27 @@
 import React from 'react';
 import Logo from '../Logo/Logo';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
+import useAuth from '../../Hooks/useAuth';
 
 const Header = () => {
+  const {user, signOutFunction} = useAuth()
+const handleSignOut = () => {
+  signOutFunction()
+    .then(() => {
+      console.log("Sign out successful");
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
   const link = <>
-  <li><NavLink to={""}>Service</NavLink></li>
-  <li><NavLink to={""}>Service</NavLink></li>
+  <li><NavLink to={"/"}>Home</NavLink></li>
+  <li><NavLink to={'/about'}>about</NavLink></li>
+  <li><NavLink to={"/coverage"}>Coverag</NavLink></li>
   </>
     return (
         <div>
-            <div className="navbar bg-base-100 shadow-sm">
+            <div className="navbar bg-base-100 shadow-sm mb-10">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -24,12 +36,13 @@ const Header = () => {
     <a className="btn btn-ghost text-xl"><Logo></Logo></a>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1">
+    <ul className="menu menu-horizontal px-1 text-xl font-semibold navlink">
 {link}
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+    {user?<Link onClick={handleSignOut} className="btn">Sign Out</Link> : <Link to={'/login'} className="btn">Sign In</Link>}
+    <Link to={'/raider'} className='bg-primary text-black py-2 px-5 rounded-4xl'>Be A Rider</Link>
   </div>
 </div>
         </div>

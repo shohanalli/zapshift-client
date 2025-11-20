@@ -14,7 +14,7 @@ const Carousele = () => {
  infiniteLoop = {true}
  autoPlay = {true}
  >
-                <div className='relative my-5'>
+                <div className='relative'>
                     <img src={img1} />
                     <div className=' flex justify-center items-center gap-3 absolute bottom-20 left-20'>
                       <Link className='primary_btn'>Track Your Parcel</Link>  

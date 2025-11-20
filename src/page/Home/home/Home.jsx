@@ -5,6 +5,7 @@ import Service from '../Service/Service';
 import Team from '../Team/Team';
 import System from '../System/System';
 import Priority from '../Priority/Priority';
+import Review from '../Review.js/Review';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
            <Team></Team>
            <System></System>
            <Priority></Priority>
+           <Review></Review>
         </div>
     );
 };

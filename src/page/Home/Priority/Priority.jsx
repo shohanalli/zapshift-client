@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 import locationMarchent from '../../../assets/location-merchant.png'
+import bgImg  from '../../../assets/be-a-merchant-bg.png'
 const Priority = () => {
     return (
-        <div className='bg-[#03373D] relative rounded-2xl p-10 my-15'>
+        <div className='bg-[#03373D] relative rounded-2xl p-20 my-15'>
             <section className='flex gap-10 '>
                 <aside className='space-y-5'>
                     <h2 className='text-3xl font-bold text-white'>Merchant and Customer Satisfaction is Our First Priority</h2>
@@ -16,6 +17,7 @@ const Priority = () => {
                 <aside className=''>
                     <img src={locationMarchent} alt="" />
                 </aside>
+                <img src={bgImg} alt="" className='absolute top-0'/>
             </section>
         </div>
     );
