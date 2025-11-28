@@ -8,6 +8,14 @@ import Login from "../page/Authenthication/Login";
 import Ragister from "../page/Authenthication/Ragister";
 import Raider from "../page/Raider/Raider";
 import PrivetRouter from "./PrivetRouter";
+import SendParcel from "../page/SendAparcel/SendParcel";
+import DashBoard from "../Layout/Dashboard/DashBoardLayout";
+import Myparcel from "../page/Dashboard/Myparcel";
+import DashBoardLayout from "../Layout/Dashboard/DashBoardLayout";
+import Payment from "../page/Dashboard/Payment/Payment";
+import PaymentCancel from "../page/Dashboard/Payment/paymentCancel";
+import PaymentSuccess from "../page/Dashboard/Payment/paymentSuccess";
+import PaymentDetails from "../page/PaymentDetails/PaymentDetails";
 
 export const router = createBrowserRouter([
   {
@@ -25,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>
+      },
+      {
+        path: "/send-parcel",
+        element: <SendParcel></SendParcel>
       },
       {
         path: '/raider',
@@ -45,5 +57,32 @@ export const router = createBrowserRouter([
         element: <Ragister></Ragister>
       }
     ]
+  },
+  {
+    path: '/dashboard',
+    element: <DashBoardLayout></DashBoardLayout>,
+    children: [
+      {
+        path: 'my-parcel',
+        element: <Myparcel></Myparcel>
+      },
+      {
+        path : 'payment/:parcelId',
+        element: <Payment></Payment>
+      },
+      {
+        path: 'payment-cancel',
+        element:<PaymentCancel></PaymentCancel>
+      },
+      {
+        path: 'payment-success',
+        element: <PaymentSuccess></PaymentSuccess>
+      },
+      {
+        path: 'payment-details',
+        element: <PaymentDetails></PaymentDetails>
+      }
+    ]
+
   }
 ]);

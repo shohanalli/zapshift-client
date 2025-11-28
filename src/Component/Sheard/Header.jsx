@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from '../Logo/Logo';
 import { Link, NavLink } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
+import Myparcel from '../../page/Dashboard/Myparcel';
 
 const Header = () => {
   const {user, signOutFunction} = useAuth()
@@ -18,6 +19,10 @@ const handleSignOut = () => {
   <li><NavLink to={"/"}>Home</NavLink></li>
   <li><NavLink to={'/about'}>about</NavLink></li>
   <li><NavLink to={"/coverage"}>Coverag</NavLink></li>
+  <li><NavLink to={"/send-parcel"}>Send a parcel</NavLink></li>
+  {
+    user && <NavLink to={'dashboard/my-parcel'}>My Parcel</NavLink>
+  }
   </>
     return (
         <div>
@@ -33,10 +38,10 @@ const handleSignOut = () => {
           {link}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl"><Logo></Logo></a>
+    <Logo className="btn btn-ghost text-xl"></Logo>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1 text-xl font-semibold navlink">
+    <ul className="menu menu-horizontal px-1 text-base font-semibold navlink">
 {link}
     </ul>
   </div>
