@@ -16,8 +16,8 @@ const Service = () => {
             
         </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 py-20 ">
- {services.map(service =>(
-       <section className="bg-white rounded-2xl shadow-2xl py-5 px-2 flex flex-col items-center justify-center space-y-3 cursor-pointer hover:bg-primary transition-all duration-700 hover:translate-x-4">
+ {services.map((service, i) =>(
+       <section key={i} className="bg-white rounded-2xl shadow-2xl py-5 px-2 flex flex-col items-center justify-center space-y-3 cursor-pointer hover:bg-primary transition-all duration-700 hover:translate-x-4">
         <img src={service.Image} alt="" />
         <h2 className="text-xl font-bold text-secondary">{service.tittle}</h2>
         <p className="text-base text-black/60 text-center">{service.description}</p>

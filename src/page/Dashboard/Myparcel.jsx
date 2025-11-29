@@ -6,7 +6,7 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaMagnifyingGlass } from "react-icons/fa6";
 import { FaEdit } from "react-icons/fa";
 import Swal from 'sweetalert2';
-import { data} from 'react-router';
+// import { data} from 'react-router';
 const Myparcel = () => {
     const {user} = useAuth()
     const axiousSecure = useAxousInstanc()

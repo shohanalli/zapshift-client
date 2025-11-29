@@ -16,6 +16,7 @@ import Payment from "../page/Dashboard/Payment/Payment";
 import PaymentCancel from "../page/Dashboard/Payment/paymentCancel";
 import PaymentSuccess from "../page/Dashboard/Payment/paymentSuccess";
 import PaymentDetails from "../page/PaymentDetails/PaymentDetails";
+import RaiderDetails from "../page/RaidersDetails/RaiderDetails";
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/send-parcel",
-        element: <SendParcel></SendParcel>
+        element: <PrivetRouter><SendParcel /></PrivetRouter>
       },
       {
         path: '/raider',
@@ -81,6 +82,10 @@ export const router = createBrowserRouter([
       {
         path: 'payment-details',
         element: <PaymentDetails></PaymentDetails>
+      },
+      {
+        path: 'raiders-details',
+        element: <RaiderDetails></RaiderDetails>
       }
     ]
 

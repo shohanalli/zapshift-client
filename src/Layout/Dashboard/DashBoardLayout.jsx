@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, NavLink, Outlet } from 'react-router';
 import Logo from '../../Component/Logo/Logo';
 import { CiDeliveryTruck } from 'react-icons/ci';
-import { FaCreditCard } from 'react-icons/fa';
+import { FaCreditCard, FaMotorcycle } from 'react-icons/fa';
 
 const DashBoardLayout = () => {
     return (
@@ -49,6 +49,12 @@ const DashBoardLayout = () => {
             <NavLink to='/dashboard/payment-details' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Payment-Details">
             <FaCreditCard  className="my-1.5 inline-block size-4"/>
             <span className="is-drawer-close:hidden">Payment-Details</span>
+            </NavLink>
+        </li>
+        <li>
+            <NavLink to='/dashboard/raiders-details' className="is-drawer-close:tooltip is-drawer-close:tooltip-right" data-tip="Raider-Details">
+            <FaMotorcycle  className="my-1.5 inline-block size-4"/>
+            <span className="is-drawer-close:hidden">Raider-Details</span>
             </NavLink>
         </li>
         {/* List item */}

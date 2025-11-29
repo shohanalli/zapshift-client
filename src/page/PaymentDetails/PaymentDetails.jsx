@@ -26,6 +26,7 @@ const PaymentDetails = () => {
         <th>Name</th>
         <th>Price</th>
         <th>TransactionID</th>
+        <th>Payment Time</th>
       </tr>
     </thead>
     <tbody>
@@ -37,6 +38,7 @@ const PaymentDetails = () => {
         <td>{payment.parcelName}</td>
         <td>{payment.amount}</td>
         <td>{payment.transactionId}</td>
+        <td>{payment.paidAt}</td>
       </tr>
     )
 }

@@ -4,18 +4,20 @@ import useAuth from '../../Hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router';
 import SocialLogin from '../../Component/Sheard/SocialLogin';
 import axios from 'axios';
+import useAxousInstanc from '../../Hooks/useAxousInstanc';
 
 const Ragister = () => {
     const {register, handleSubmit, formState:{errors}} = useForm();
     const {createUser, updateUserProfile} = useAuth()
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosSecure = useAxousInstanc() 
     const handelRegisterFrom = (data) =>{
       const profileImg = data.photo[0];
 
         // console.log(data)
         createUser(data.email, data.password)
-        .then((result) =>{
+        .then(() =>{
             //store photo data
           
           const formData = new FormData()
@@ -24,8 +26,18 @@ const Ragister = () => {
           const img_API_URL_LINK = `https://api.imgbb.com/1/upload?expiration=600&key=${import.meta.env.VITE_imageurl}`
           axios.post(img_API_URL_LINK, formData)
           .then(res=>{
-            // console.log("result uploading data", res.data.data.url)
-          // console.log(result.user)
+            const photoURL =  res.data.data.url
+            const userInfo ={
+              email: res.data.email,
+              displayName: res.data.name,
+               photoURL: photoURL
+            }
+            axiosSecure.post('/users', userInfo)
+            .then(res=>{
+              if(res.data.insertedId){
+                console.log("user data send successful in database");
+              }
+            })
           // update profile
           const updateProfile = {
             photoURL:  res.data.data.url,
@@ -68,7 +80,7 @@ const Ragister = () => {
           <input type="password" className="input" placeholder="Password" {...register('password',{
             required: true,
             minLength: 6,
-            pattern: /^[A-Za-z]+$/
+            pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&]).{6,}$/
           })} />
           {
             errors.password?.type === 'require' && <p className='text-red-700'>Must be need</p>

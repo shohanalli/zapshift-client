@@ -20,6 +20,7 @@ const handleSignOut = () => {
   <li><NavLink to={'/about'}>about</NavLink></li>
   <li><NavLink to={"/coverage"}>Coverag</NavLink></li>
   <li><NavLink to={"/send-parcel"}>Send a parcel</NavLink></li>
+  <li><NavLink to={'/raider'}>Be A Raider</NavLink></li>
   {
     user && <NavLink to={'dashboard/my-parcel'}>My Parcel</NavLink>
   }

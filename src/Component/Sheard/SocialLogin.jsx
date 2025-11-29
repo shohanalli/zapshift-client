@@ -1,16 +1,27 @@
 import React from 'react';
 import useAuth from '../../Hooks/useAuth';
 import { useLocation, useNavigate } from 'react-router';
+import useAxousInstanc from '../../Hooks/useAxousInstanc';
 
 const SocialLogin = () => {
-        
+        const axiosSecure = useAxousInstanc()
     const{ signInGoogle } = useAuth()
     const naviget = useNavigate();
     const location = useLocation();
 const handelGooleLogin = () =>{
     signInGoogle()
     .then(res=>{
-        naviget(location?.state || '/')
+      naviget(location?.state || '/')
+        const userInfo ={
+              email: res.user.email,
+              displayName: res.user.displayName,
+                photoURL: res.user.photoURL
+            }
+            axiosSecure.post('/users', userInfo)
+            .then(res=>{ 
+                console.log("login user send successful in database");
+                  
+            })
         console.log(res)
     })
     .catch(err=>console.log(err))

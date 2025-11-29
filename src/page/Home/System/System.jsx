@@ -11,8 +11,8 @@ const System = () => {
     return (
         <div className='py-10 border-b border-secondary border-dashed'>
             {
-                systems.map((system)=>
-                <div className='flex py-5 gap-10 bg-white w-[95%] mx-auto rounded-xl my-5'>
+                systems.map((system, i)=>
+                <div key={i} className='flex py-5 gap-10 bg-white w-[95%] mx-auto rounded-xl my-5'>
                 <aside className=' border-r border-secondary border-dashed pr-6 flex-1'>
                     <img src={system.Image} alt="" className='p-3'/>
                 </aside>
